@@ -1,0 +1,497 @@
+/* Basic styles for Navbar and Footer */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0;
+  z-index: 1000;
+  color: white; /* Add this to ensure text is visible on dark background */
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  position: relative;
+  max-width: 1800px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.logo-section {
+  display: flex;
+  align-items: anchor-center;
+  flex: 0 0 auto; /* Fix the logo section to the left */
+}
+
+.logo-image {
+  height: 100px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2e3b4e;
+}
+
+.tagline {
+  font-size: 12px;
+  color: #2e3b4e;
+  margin-top: 4px;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Countdown Section */
+.countdown-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e3b4e;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.countdown-container {
+  display: flex;
+}
+
+.countdown-box {
+  text-align: center;
+}
+
+.countdown-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3b82f6;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+  width: 50px;
+  text-align: center;
+}
+
+.countdown-label {
+  font-size: 12px;
+  color: #2e3b4e;
+  text-transform: uppercase;
+}
+
+/* Navigation Links for Desktop */
+.nav-links {
+  display: flex; /* Show links by default on larger screens */
+  gap: 36px; /* Increased from 20px for better spacing */
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  text-decoration: none;
+}
+
+/* Navigation Links for Mobile */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute;
+    top: 60px; /* Adjust based on your navbar height */
+    right: 10px;
+    background-color: #f9f8eb;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
+    border-radius: 12px; /* Rounded corners */
+    padding: 15px; /* Add padding inside the dropdown */
+    z-index: 1000;
+    width: 220px; /* Slightly wider for better spacing */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-10px); /* Slide in from above */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
+    gap: 28px; /* Increased spacing between mobile menu items */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show links when menu is toggled */
+    opacity: 1; /* Fully visible */
+    transform: translateY(0); /* Reset position */
+  }
+
+  .nav-link {
+    font-size: 16px; /* Slightly larger font size */
+    font-weight: 600; /* Make text bold */
+    color: #2e3b4e; /* Darker text color */
+    text-decoration: none;
+    padding: 10px 15px; /* Add padding for better spacing */
+    border-radius: 8px; /* Rounded corners for links */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+  }
+
+  .nav-link:hover {
+    background-color: #3498db; /* Blue background on hover */
+    color: #f9f8eb; /* White text on hover */
+  }
+
+  .nav-link:active {
+    background-color: #2980b9; /* Darker blue for active state */
+  }
+}
+
+/* Sticky Navbar for Small Screens */
+@media screen and (max-width: 768px) {
+  .navbar {
+    position: sticky; /* Make the navbar sticky */
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: #f9f8eb; /* Ensure a consistent background */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  }
+}
+
+/* Mobile Menu Button */
+@media screen and (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block; /* Show mobile menu button */
+    background: none;
+    border: none;
+    font-size: 28px; /* Slightly larger icon */
+    color: #2e3b4e;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add animation to the button */
+  }
+
+  .mobile-menu-btn:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+  }
+}
+
+/* Navbar Countdown */
+.navbar-countdown {
+  margin-left: auto; /* Push the countdown to the far right */
+  text-align: right; /* Align the countdown content to the right */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add spacing if needed */
+  flex: 0 0 auto; /* Fix the countdown to the right */
+}
+
+/* Footer Section */
+.footer-section {
+  background-color: #f9f8eb;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+.footer-gradient {
+  height: 30px; /* Adjust height as needed */
+  background: #4CAF50;
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-bottom: 20px; /* Add gap below the gradient */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center; /* Center the links horizontally */
+  margin-bottom: 20px; /* Add gap below the links */
+  color: #f9f8eb; /* White text for better contrast */
+}
+
+.footer-link {
+  font-size: 14px;
+  color: #f9f8eb; /* White text for better contrast */
+  text-decoration: none;
+  transition: color 0.3s;
+  padding: 10px;
+}
+
+.footer-link:hover {
+  color: #424242; /* Lighter color on hover */
+}
+
+.footer-logo img {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: #424242;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Media Queries for Responsive Navbar & Footer */
+
+/* Large Tablets and Small Laptops (769px - 1024px) */
+@media screen and (max-width: 1024px) {
+  .navbar-container {
+    padding: 15px 30px;
+  }
+  
+  .logo-image {
+    height: 80px;
+  }
+  
+  .nav-links {
+    gap: 28px; /* Increased from 15px for better spacing */
+  }
+  
+  .countdown-box {
+    width: 50px;
+    padding: 4px;
+  }
+  
+  .countdown-value {
+    font-size: 1.3rem;
+  }
+}
+
+/* Standard Tablets (601px - 768px) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding: 15px 20px;
+  }
+  
+  .navbar-container {
+    padding: 15px 0;
+  }
+  
+  .logo-image {
+    height: 70px;
+  }
+  
+  .navbar-countdown {
+    margin-left: 0; /* Reset margin for better alignment */
+  }
+  
+  .countdown-title {
+    font-size: 1rem;
+  }
+  
+  .countdown-box {
+    width: 40px;
+  }
+  
+  .countdown-value {
+    font-size: 1.1rem;
+  }
+  
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Large Phones (481px - 600px) - Includes iPhone 6/7/8 Plus */
+@media screen and (max-width: 600px) {
+  .navbar {
+    padding: 12px 15px;
+  }
+  
+  .logo-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .logo-image {
+    height: 60px;
+  }
+  
+  .tagline {
+    display: none; /* Hide tagline to save space */
+  }
+  
+  .countdown-section {
+    display: none; /* Optionally hide countdown on smaller screens */
+  }
+  
+  .footer-gradient {
+    height: 40px;
+  }
+  
+  .footer-links {
+    gap: 10px 15px; /* row and column gap */
+  }
+}
+
+/* Small Phones (320px - 480px) - Includes iPhone 5/SE and newer iPhones */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .logo-image {
+    height: 50px;
+  }
+  
+  .footer-content {
+    padding: 0 10px;
+  }
+  
+  .footer-links {
+    font-size: 12px;
+    gap: 8px 12px;
+  }
+  
+  .footer-copyright {
+    font-size: 12px;
+  }
+}
+
+/* iPhone 14 Pro Max/Plus Landscape (428px) */
+@media screen and (max-width: 480px) and (max-height: 428px) and (orientation: landscape) {
+  .navbar {
+    padding: 8px 10px;
+  }
+  
+  .logo-image {
+    height: 40px;
+  }
+  
+  .mobile-menu-btn {
+    font-size: 20px;
+  }
+}
+
+/* iPhone 12/13 Mini (375px) */
+@media screen and (max-width: 375px) {
+  .logo {
+    font-size: 16px;
+  }
+  
+  .logo-image {
+    height: 45px;
+  }
+  
+  .footer-logo img {
+    width: 50px;
+  }
+}
+
+/* iPhone 5/SE (320px) */
+@media screen and (max-width: 320px) {
+  .logo {
+    font-size: 15px;
+  }
+  
+  .logo-image {
+    height: 40px;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* iPad Pro 12.9" (1024x1366) */
+@media screen and (width: 1024px) and (height: 1366px) {
+  .navbar-container {
+    max-width: 950px;
+  }
+}
+
+/* iPad Pro 11" (834x1194) */
+@media screen and (width: 834px) and (height: 1194px) {
+  .navbar-container {
+    max-width: 800px;
+  }
+}
+
+/* iPad Mini (768x1024) */
+@media screen and (width: 768px) and (height: 1024px) {
+  .navbar-container {
+    max-width: 700px;
+  }
+}
+
+/* Desktop HD Screens (1440px and up) */
+@media screen and (min-width: 1440px) {
+  .navbar-container {
+    max-width: 1400px;
+  }
+}
+
+/* 4K Screens (2560px and up) */
+@media screen and (min-width: 2560px) {
+  .navbar-container {
+    max-width: 2400px;
+    padding: 25px 60px;
+  }
+  
+  .logo-image {
+    height: 120px;
+  }
+  
+  .nav-link {
+    font-size: 18px;
+    text-decoration: none;
+  }
+}
+
+/* Foldable Devices (e.g., Samsung Z Fold) */
+@media screen and (min-width: 768px) and (max-height: 600px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+  
+  .logo-image {
+    height: 60px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    background-color: #f9f8eb;
+    color: #1a1a1a;
+  }
+  
+  .logo, .tagline, .nav-link {
+    color: #009150;
+    text-decoration: none;
+  }
+  
+  .mobile-menu-btn {
+    color: #f9f8eb;
+  }
+  
+  .footer-section {
+    background-color: #f9f8eb;
+  }
+  
+  .footer-link {
+    color: #f9f8eb;
+  }
+
+  .footer-copyright{
+    color:#424242;
+  }
+}
