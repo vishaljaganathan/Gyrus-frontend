@@ -5,6 +5,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Swal from 'sweetalert2';
+
 import './assets/css/plans.css';
 
 const Plans = () => {
