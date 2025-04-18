@@ -269,10 +269,7 @@ body {
   }
 }
 
-
-
-/* Add this to your plans.css */
-
+/* QR Section for SweetAlert2 Modal */
 .qr-section {
   display: flex;
   justify-content: center;

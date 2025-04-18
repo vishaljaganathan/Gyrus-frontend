@@ -1,6 +1,3 @@
-
-
-// Plans.js
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -66,7 +63,8 @@ const Plans = () => {
           <div class="store-badge">
             <img src="/images/qr.png" alt="App Store QR" />
             <img src="/images/appstore.png" alt="App Store Badge" />
-
+          </div>
+          <div class="store-badge">
             <img src="/images/qr.png" alt="Play Store QR" />
             <img src="/images/playstore.png" alt="Play Store Badge" />
           </div>
@@ -138,4 +136,3 @@ const Plans = () => {
 };
 
 export default Plans;
-
