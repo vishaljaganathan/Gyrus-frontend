@@ -17,13 +17,13 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       {/* Logo Section */}
-      <div className="logo-section">
+      <Link to="/" className="logo-section" onClick={closeMenu} style={{ textDecoration: 'none' }}>
         <img src="/images/logo2.png" alt="Gyrus Logo" className="logo-image" />
         <div className="logo-text">
           <div className="logo">Gyrus</div>
           <div className="tagline">Your NEET Prep App</div>
         </div>
-      </div>
+      </Link>
 
       {/* Mobile Menu Button */}
       <button className="mobile-menu-btn" onClick={toggleMenu}>

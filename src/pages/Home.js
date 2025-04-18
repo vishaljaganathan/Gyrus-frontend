@@ -1,7 +1,7 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Countdown from '../components/Countdown';
 
 import './assets/css/home.css';
 
@@ -10,12 +10,11 @@ import './assets/css/styles.css';
 
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <Navbar />
-  
+      
+      
 
 
         {/* Added Gyrus section starts here */}
@@ -63,8 +62,12 @@ const Home = () => {
       </div>
     </div>
   </div>
-</section>
 
+ 
+</section>
+<div className="home-countdown">
+      <Countdown />
+      </div>
 
         {/* Why Gyrus Section */}
         <section id="why-gyrus">

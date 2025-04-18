@@ -4,12 +4,14 @@ import Footer from '../components/Footer';
 import axios from 'axios';
 import './assets/css/contact.css';
 
+// Make sure FontAwesome CSS is loaded globally (e.g., in index.html or via npm)
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    subject: 'All Subjects', // Default value for the dropdown
+    subject: 'All Subjects',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,7 +39,7 @@ const Contact = () => {
           name: '',
           email: '',
           phone: '',
-          subject: 'All Subjects', // Reset to default value
+          subject: 'All Subjects',
           message: ''
         });
       } else {
@@ -68,22 +70,26 @@ const Contact = () => {
             
             <div className="contact-detail">
               <h3>Phone Number</h3>
-              <p>📞 <a href="tel:+91-8248362483">+91-8248362483</a></p>
+              <i className="fa-solid fa-phone" style={{ color: "#009150", marginRight: 8 }}></i>
+              <a href="tel:+91-8248362483">+91-8248362483</a>
             </div>
             
             <div className="contact-detail">
               <h3>Email Address</h3>
-              <p>✉️ <a href="mailto:support@gyrusneet.com">support@gyrusneet.com</a></p>
+              <i className="fa-solid fa-envelope" style={{ color: "#0074D9", marginRight: 8 }}></i>
+              <a href="mailto:support@gyrusneet.com">support@gyrusneet.com</a>
             </div>
             
             <div className="contact-detail">
               <h3>Our Location</h3>
-              <address>📍 <a href="https://maps.app.goo.gl/9X8pr1fnijdh2v7o7">
-                SRI AUROBINDO INFOTECH<br />
-                No.8 & 9, First Floor,<br />
-                Dhanalakshmi Street, Rathna Nagar Extension,<br />
-                Thattanchavady, Pondicherry - 605009<br />
-                India
+              <i className="fa-solid fa-location-dot" style={{ color: "#009150", marginRight: 8 }}></i>
+              <address style={{ display: "inline" }}>
+                <a href="https://maps.app.goo.gl/9X8pr1fnijdh2v7o7" target="_blank" rel="noopener noreferrer">
+                  SRI AUROBINDO INFOTECH<br />
+                  No.8 & 9, First Floor,<br />
+                  Dhanalakshmi Street, Rathna Nagar Extension,<br />
+                  Thattanchavady, Pondicherry - 605009<br />
+                  India
                 </a>
               </address>
             </div>
@@ -188,4 +194,3 @@ const Contact = () => {
 };
 
 export default Contact;
-

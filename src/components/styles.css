@@ -4,12 +4,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px;
-  background-color: #f8f9fa;
+  background-color: #F6F0F0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
   top: 0;
   z-index: 1000;
-  color: white; /* Add this to ensure text is visible on dark background */
+  color: #F6F0F0; /* Add this to ensure text is visible on dark background */
 }
 
 .navbar-container {
@@ -62,7 +62,7 @@
 .countdown-title {
   font-size: 16px;
   font-weight: 600;
-  color: #2e3b4e;
+  color: #009150;
   text-align: center;
   margin-bottom: 5px;
 }
@@ -88,14 +88,14 @@
 
 .countdown-label {
   font-size: 12px;
-  color: #2e3b4e;
+  color: #009150;
   text-transform: uppercase;
 }
 
 /* Navigation Links for Desktop */
 .nav-links {
   display: flex; /* Show links by default on larger screens */
-  gap: 36px; /* Increased from 20px for better spacing */
+  gap: 20px;
   justify-content: center;
   align-items: center;
   flex: 1;
@@ -110,7 +110,7 @@
     position: absolute;
     top: 60px; /* Adjust based on your navbar height */
     right: 10px;
-    background-color: #f9f8eb;
+    background-color: #F6F0F0;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
     border-radius: 12px; /* Rounded corners */
     padding: 15px; /* Add padding inside the dropdown */
@@ -119,7 +119,6 @@
     opacity: 0; /* Start hidden */
     transform: translateY(-10px); /* Slide in from above */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    gap: 28px; /* Increased spacing between mobile menu items */
   }
 
   .nav-links.active {
@@ -140,7 +139,7 @@
 
   .nav-link:hover {
     background-color: #3498db; /* Blue background on hover */
-    color: #f9f8eb; /* White text on hover */
+    color: #F6F0F0; /* White text on hover */
   }
 
   .nav-link:active {
@@ -154,7 +153,7 @@
     position: sticky; /* Make the navbar sticky */
     top: 0; /* Stick to the top of the viewport */
     z-index: 1000; /* Ensure it stays above other elements */
-    background-color: #f9f8eb; /* Ensure a consistent background */
+    background-color: #F6F0F0; /* Ensure a consistent background */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
   }
 }
@@ -178,6 +177,7 @@
 
 /* Navbar Countdown */
 .navbar-countdown {
+  display: block;
   margin-left: auto; /* Push the countdown to the far right */
   text-align: right; /* Align the countdown content to the right */
   display: flex;
@@ -188,7 +188,7 @@
 
 /* Footer Section */
 .footer-section {
-  background-color: #f9f8eb;
+  background-color: #F6F0F0;
   text-align: center;
   padding: 20px 0;
   position: relative;
@@ -214,12 +214,12 @@
   display: flex;
   justify-content: center; /* Center the links horizontally */
   margin-bottom: 20px; /* Add gap below the links */
-  color: #f9f8eb; /* White text for better contrast */
+  color: #F6F0F0; /* White text for better contrast */
 }
 
 .footer-link {
   font-size: 14px;
-  color: #f9f8eb; /* White text for better contrast */
+  color: #F6F0F0; /* White text for better contrast */
   text-decoration: none;
   transition: color 0.3s;
   padding: 10px;
@@ -256,7 +256,7 @@
   }
   
   .nav-links {
-    gap: 28px; /* Increased from 15px for better spacing */
+    gap: 15px;
   }
   
   .countdown-box {
@@ -285,6 +285,7 @@
   
   .navbar-countdown {
     margin-left: 0; /* Reset margin for better alignment */
+    display: none !important;
   }
   
   .countdown-title {
@@ -324,7 +325,7 @@
     display: none; /* Hide tagline to save space */
   }
   
-  .countdown-section {
+  .navbar-countdown{
     display: none; /* Optionally hide countdown on smaller screens */
   }
   
@@ -470,7 +471,7 @@
 /* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
   .navbar {
-    background-color: #f9f8eb;
+    background-color: #F6F0F0;
     color: #1a1a1a;
   }
   
@@ -480,15 +481,15 @@
   }
   
   .mobile-menu-btn {
-    color: #f9f8eb;
+    color: #F6F0F0;
   }
   
   .footer-section {
-    background-color: #f9f8eb;
+    background-color: #F7F7F7;
   }
   
   .footer-link {
-    color: #f9f8eb;
+    color: #F7F7F7;;
   }
 
   .footer-copyright{

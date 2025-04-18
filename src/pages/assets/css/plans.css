@@ -6,7 +6,7 @@ body {
 }
 /* plans.css */
 .plans-section {
-  background-color: #f8f9fa;
+  background-color: #F6F0F0;
   padding: 3rem 0;
   display: flex; /* Use flexbox */
   flex-direction: column; /* Stack content vertically */
@@ -56,7 +56,7 @@ body {
 .plan-box {
   min-width: 280px;
   width: 300px;
-  background: #f9f8eb;
+  background: #F6F0F0;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -169,7 +169,7 @@ body {
 .plan-box.foundation ul li:before { color: #9b59b6; }
 .plan-box.regular ul li:before { color: #3498db; }
 .plan-box.repeater ul li:before { color: #2ecc71; }
-.plan-box.crash ul li:before { color: #e74c3c; }
+.plan-box.crash ul li:before { color: #ff6b9d; }
 
 .price {
   padding: 0 1.25rem;
@@ -267,4 +267,31 @@ body {
     font-size: 1.1rem;
     padding: 0.75rem;
   }
+}
+
+
+
+/* Add this to your plans.css */
+
+.qr-section {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 16px;
+}
+
+.store-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.store-badge img:first-child {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 8px;
+}
+
+.store-badge img:last-child {
+  width: 120px;
 }

@@ -1,7 +1,10 @@
+
+
 // Plans.js
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import Swal from 'sweetalert2';
 import './assets/css/plans.css';
 
 const Plans = () => {
@@ -53,6 +56,33 @@ const Plans = () => {
     }
   ];
 
+  // Handler for Subscribe Now
+  const handleSubscribeClick = () => {
+    Swal.fire({
+      title: 'Scan to Download the App',
+      html: `
+        <div class="qr-section">
+          <div class="store-badge">
+            <img src="/images/qr.png" alt="App Store QR" />
+            <img src="/images/appstore.png" alt="App Store Badge" />
+
+            <img src="/images/qr.png" alt="Play Store QR" />
+            <img src="/images/playstore.png" alt="Play Store Badge" />
+          </div>
+        </div>
+        <div style="margin-top: 16px; text-align: center;">
+          Scan the QR code to download the app from your preferred store.
+        </div>
+      `,
+      showCloseButton: true,
+      showConfirmButton: false,
+      width: 500,
+      customClass: {
+        popup: 'plans-swal-popup'
+      }
+    });
+  };
+
   return (
     <>
       <Navbar />
@@ -78,7 +108,7 @@ const Plans = () => {
                     <li key={index}>{feature}</li>
                   ))}
                 </ul>
-               {course.price && (
+                {course.price && (
                   <div className="price">
                     {course.price} <small>INR + GST<br />
                     <span className="text-decoration-line-through">{course.originalPrice}</span><br />
@@ -88,6 +118,11 @@ const Plans = () => {
                 <button 
                   className="btn-plan"
                   disabled={course.disabled || false}
+                  onClick={
+                    course.buttonText === "Subscribe Now"
+                      ? handleSubscribeClick
+                      : undefined
+                  }
                 >
                   {course.buttonText}
                 </button>
@@ -102,3 +137,4 @@ const Plans = () => {
 };
 
 export default Plans;
+

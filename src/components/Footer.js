@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './footer.css';
 
 const Footer = () => {
   return (
@@ -19,7 +19,7 @@ const Footer = () => {
           <img src="/images/sai-logo.png" alt="SAI Logo" />
         </div>
         <div className="footer-copyright">
-          Copyright © Sri Aurobindo Infotech
+          © 2025 - Sri Aurobindo Infotech
         </div>
       </div>
     </footer>

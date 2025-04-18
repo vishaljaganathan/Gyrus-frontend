@@ -5,6 +5,33 @@ body {
     box-sizing: border-box;
 }
 
+
+
+
+/* Hide by default */
+.home-countdown {
+    display: none;
+  }
+  
+  /* Show and style on small screens */
+  @media (max-width: 767px) {
+    .home-countdown {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 0;
+      margin: 0 auto 16px auto;
+      width: 100%;
+      max-width: 480px;
+      box-sizing: border-box;
+      background: #fff; /* Optional: add a background for contrast */
+      border-radius: 12px; /* Optional: rounded corners */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Optional: subtle shadow */
+    }
+  }
+  
+
+  
 /* Mobile Menu Styles */
 .mobile-menu-btn {
     display: none;
@@ -54,7 +81,7 @@ body {
 /* Features Section */
 #why-gyrus {
     padding: 50px 20px;
-    background: #f9f8eb;
+    background: #F6F0F0;
 }
 
 #why-gyrus h2 {
@@ -66,16 +93,18 @@ body {
 }
 
 .card-container {
+    height: auto;
     display: grid;
     grid-template-columns: repeat(1, 1fr); /* Default: 1 card per row */
-    gap: 20px; /* Space between cards */
-    max-width: 1200px;
+    gap: 40px; /* Space between cards */
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 10px; /* Add padding for smaller screens */
     align-items: stretch; /* Ensure all cards stretch to the same height */
 }
 
 .info-card {
+    height: 100%; /* Make each card fill the grid row height */
     background: #eee;
     border-radius: 15px;
     color: #f9f8eb;
@@ -98,6 +127,7 @@ body {
     height: 100%;
     align-items: center;
     gap: 20px; /* Space between icon and text */
+    justify-content: space-between; 
 }
 
 
@@ -163,7 +193,7 @@ body {
 /* About Section */
 .about-section {
     padding: 50px;
-    background-color: 	#f9f8eb;
+    background-color: 	#F6F0F0;
     text-align: center;
 }
 

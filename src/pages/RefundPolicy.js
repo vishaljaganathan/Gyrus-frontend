@@ -47,7 +47,7 @@ const RefundPolicy = () => {
                   <p>
                     If you've done all of this and you still have not received your refund yet, please contact us at 
                   </p>
-                  <a href="mailto:contactus@gyrusneet.com">contactus@gyrusneet.com</a>
+                  <a href="mailto:support@gyrusneet.com">support@gyrusneet.com</a>
                 </li>
               </ol>
             </li>

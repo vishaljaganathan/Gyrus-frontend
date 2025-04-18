@@ -1,232 +1,264 @@
-/* Home Section - Core Styles */
-.home-section {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 8rem;
-  background: linear-gradient(to bottom, #50c878 0%, #009150 50%, #006341 100%);
-  min-height: 100vh;
-  width: 100%;
-  margin: 0 auto;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
 
-/* Left Content Section */
-.left-content {
-  flex: 1.5;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  max-width: 500px;
-}
-
-.content-block {
-  display: flex;
-  flex-direction: column;
-}
-
-.top-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-}
-
-.main-text {
-  font-size: clamp(1.4rem, 6vw, 1.6rem);
-  font-weight: 600;
-  color: #ffffff;
-  line-height: 1.25;
-  margin: 0;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.sub-text {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  margin: 0;
-  color: #fff;
-}
-
-.icon-image {
-  width: 150px;
-  margin-top: 12px; /* Moves the icon a bit downward */
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-}
-
-/* Phone Images Section */
-.center-content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.phone-image {
-  width: clamp(150px, 20vw, 200px);
-  height: auto;
-  animation: float 4s ease-in-out infinite;
-  transition: transform 0.3s ease;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* QR Code Section */
-.right-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 220px;
-}
-
-.qr-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 50px;
-  align-items: center;
-}
-
-.store-badge {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.store-badge img {
-  width: clamp(80px, 15vw, 120px);
-  height: auto;
-}
-
-/* Responsive Design */
-@media (max-width: 1400px) {
-  .home-section { padding: 2rem 3rem; }
-  .phone-image { width: 18vw; max-width: 220px; }
-}
-
-@media (max-width: 1200px) {
-  .home-section { padding: 2rem 2rem; gap: 1.5rem; }
-  .left-content, .center-content, .right-content { max-width: 100%; }
-}
-
-@media (max-width: 1024px) {
-  .home-section {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 2rem;
-  }
-  .qr-section { flex-direction: row; gap: 30px; }
-}
-
-@media (max-width: 900px) {
-  .home-section { padding: 1.5rem 0.5rem; }
-  .phone-image { width: 40vw; max-width: 180px; }
-}
-
-@media (max-width: 700px) {
-  .phone-image.second-phone { display: none !important; }
-}
-
-@media (max-width: 600px) {
-  .home-section {
-    padding: 1rem 1rem;
-    align-items: center;
-    text-align: center;
-  }
-  .left-content, .content-block {
-    align-items: flex-start;
-    text-align: center;   
-    max-width: 100%;
-  }
-  .main-text, .sub-text { 
-    text-align: left;
-    font-size: 1.1rem;
-  }
-  .sub-text { font-size: 0.8rem; }
-  .icon-image { 
-    width: 120px;
-    margin-top: 12px;
-  }
-  .center-content {
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-left: 0;
-  }
-  .phone-image {
-    width: 60vw;
-    max-width: 220px;
-    margin: 0 auto;
-    align-self: center;
-    display: block;
-  }
-  .top-row { justify-content: center; }
-  /* QR section side by side */
-  .qr-section {
+/* =======================
+   Home Section - Core Styles
+   ======================= */
+   .home-section {
+    display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    padding: 2rem 8rem;
+    background: linear-gradient(to bottom, #50c878 0%, #009150 50%, #006341 100%);
+    min-height: 80vh;
     width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    gap: 2rem;
   }
+  
+  /* Left Content Section */
+  .left-content {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 500px;
+  }
+  
+  .content-block {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .top-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .main-text {
+    font-size: clamp(1.4rem, 6vw, 1.6rem);
+    font-weight: 600;
+    color: #f5f7fa;
+    line-height: 1.25;
+    margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .sub-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #f5f7fa;
+  }
+  
+  .icon-image {
+    width: 150px;
+    margin-top: 12px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+  }
+  
+  /* Center Content - Phone Images */
+  .center-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .phone-image {
+    width: clamp(150px, 20vw, 200px);
+    height: auto;
+    animation: float 4s ease-in-out infinite;
+    transition: transform 0.3s ease;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Right Content - QR Codes */
+  .right-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 220px;
+  }
+  
+  .qr-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+  }
+  
   .store-badge {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
   }
-}
-
-@media (max-width: 375px) {
-  .main-text { font-size: 1rem; }
-  .phone-image { width: 80vw; }
-}
-
-/* Cross-Browser Compatibility */
-* {
-  box-sizing: content-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #fff;
-  color: #222;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  border-style: none;
-}
-
-/* Device-Specific Fixes */
-@media only screen and (max-device-width: 812px) and (orientation: landscape) {
-  .home-section { min-height: 150vh; }
-}
-
-@-webkit-keyframes float {
-  0%, 100% { -webkit-transform: translateY(0); }
-  50% { -webkit-transform: translateY(-10px); }
-}
+  
+  .store-badge img {
+    width: clamp(80px, 15vw, 120px);
+    height: auto;
+  }
+  
+  /* =======================
+     Responsive Design
+     ======================= */
+  @media (max-width: 1400px) {
+    .home-section { padding: 2rem 3rem; }
+    .phone-image { width: 18vw; max-width: 220px; }
+  }
+  
+  @media (max-width: 1200px) {
+    .home-section { padding: 2rem 2rem; gap: 1.5rem; }
+    .left-content, .center-content, .right-content { max-width: 100%; }
+  }
+  
+  @media (max-width: 1024px) {
+    .home-section {
+      flex-direction: column;
+      padding: 2rem 1rem;
+      gap: 2rem;
+    }
+    .qr-section { flex-direction: row; gap: 30px; }
+  }
+  
+  @media (max-width: 900px) {
+    .home-section { padding: 1.5rem 0.5rem; }
+    .phone-image { width: 40vw; max-width: 150px; }
+  }
+  
+  @media (max-width: 700px) {
+    .phone-image.second-phone { display: none !important; }
+  }
+  
+  @media (max-width: 600px) {
+    .home-section {
+      padding: 1rem 1rem;
+      align-items: center;
+      text-align: center;
+    }
+    .left-content, .content-block {
+      align-items: flex-start;
+      text-align: center;
+      max-width: 100%;
+    }
+    .main-text, .sub-text {
+      text-align: left;
+      font-size: 1.1rem;
+    }
+    .sub-text { font-size: 0.8rem; }
+    .icon-image {
+      width: 120px;
+      margin-top: 12px;
+    }
+    .center-content {
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding-left: 0;
+    }
+    .phone-image {
+      width: 60vw;
+      max-width: 130px;
+      margin: 0 auto;
+      align-self: center;
+      display: block;
+    }
+    .top-row { justify-content: center; }
+    /* QR section side by side */
+    .qr-section {
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+    }
+    .store-badge {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .main-text { font-size: 1rem; }
+    .phone-image { width: 80vw; }
+  }
+  
+  /* =======================
+     Cross-Browser & Utility
+     ======================= */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #fff;
+    color: #222;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-style: none;
+  }
+  
+  /* Device-Specific Fixes */
+  @media only screen and (max-device-width: 812px) and (orientation: landscape) {
+    .home-section { min-height: 150vh; }
+  }
+  
+  @-webkit-keyframes float {
+    0%, 100% { -webkit-transform: translateY(0); }
+    50% { -webkit-transform: translateY(-10px); }
+  }
+  
+  /* =======================
+     Utility Classes
+     ======================= */
+  /* Show on mobile, hide on desktop */
+  .mobile-only {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .mobile-only {
+      display: block;
+    }
+  }
+  
+  /* Optional: Hide desktop version if needed */
+  .desktop-only {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none;
+    }
+  }
+  
