@@ -93,14 +93,14 @@ const FaqSection = () => {
               onClick={() => toggleFAQ(index)}
             >
               <div className={`faq-question ${activeIndex === index ? "open" : ""}`}>
-                <span>
+                <span className="faq-question-icon">
                   {activeIndex === index ? (
                     <FaMinus className="faq-icon" />
                   ) : (
                     <FaPlus className="faq-icon" />
                   )}
-                  {faq.question}
                 </span>
+                <span className="faq-question-text">{faq.question}</span>
               </div>
               <div className={`faq-answer ${activeIndex === index ? "show" : ""}`}>
                 {faq.answer}
