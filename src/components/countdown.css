@@ -1,119 +1,139 @@
-/* Countdown Section Styles */
-.countdown-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 0;
-  max-width: 480px;
-  width: calc(100% - 32px);
-
-}
-
-.countdown-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #009150;
-  text-align: center;
-  margin-bottom: 5px;
-  letter-spacing: 1px;
-}
-
-.countdown-container {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 16px;
-}
-
-.countdown-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 60px;
-  text-align: center;
-}
-
-.countdown-value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #0071BC;
-  margin-bottom: 4px;
-  width: 50px;
-  text-align: center;
-}
-
-.countdown-label {
-  font-size: 0.9rem;
-  color: #009150;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-/* Responsive styles for tablets */
-@media screen and (max-width: 1024px) {
+/* =========================
+   Countdown Section Styles
+   ========================= */
+   .countdown-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0;
+    max-width: 480px;
+    width: calc(100% - 32px);
+  }
+  
+  /* =========================
+     Countdown Title
+     ========================= */
+  .countdown-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #009150;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+  }
+  
+  /* =========================
+     Countdown Container
+     ========================= */
+  .countdown-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  /* =========================
+     Countdown Box
+     ========================= */
   .countdown-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+    text-align: center;
+  }
+  
+  /* =========================
+     Countdown Value
+     ========================= */
+  .countdown-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0071BC;
+    margin-bottom: 4px;
     width: 50px;
-    padding: 4px;
-    min-width: 50px;
+    text-align: center;
   }
-  .countdown-value {
-    font-size: 1.3rem;
-  }
-}
-
-/* Responsive styles for standard tablets */
-@media screen and (max-width: 768px) {
-  .countdown-title {
-    font-size: 1rem;
-  }
-  .countdown-box {
-    width: 40px;
-    min-width: 40px;
-  }
-  .countdown-value {
-    font-size: 1.1rem;
-  }
-}
-
-/* Responsive styles for large phones */
-@media screen and (max-width: 600px) {
-  .countdown-container {
-    gap: 8px;
-  }
-  .countdown-box {
-    min-width: 48px;
-    width: 48px;
-  }
-  .countdown-value {
-    font-size: 1.3rem;
-  }
+  
+  /* =========================
+     Countdown Label
+     ========================= */
   .countdown-label {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    color: #009150;
+    text-transform: uppercase;
+    text-align: center;
   }
-}
-
-/* Responsive styles for small phones */
-@media screen and (max-width: 480px) {
-  .countdown-section {
-    padding: 10px 0;
-    max-width: 98vw;
+  
+  /* =========================
+     Responsive Styles
+     ========================= */
+  
+  /* Tablets */
+  @media screen and (max-width: 1024px) {
+    .countdown-box {
+      width: 50px;
+      padding: 4px;
+      min-width: 50px;
+    }
+    .countdown-value {
+      font-size: 1.3rem;
+    }
   }
-  .countdown-title {
-    font-size: 0.95rem;
+  
+  /* Standard Tablets */
+  @media screen and (max-width: 768px) {
+    .countdown-title {
+      font-size: 1rem;
+    }
+    .countdown-box {
+      width: 40px;
+      min-width: 40px;
+    }
+    .countdown-value {
+      font-size: 1.1rem;
+    }
   }
-  .countdown-container {
-    gap: 12px; /* Increased gap for better spacing */
-    flex-wrap: wrap; /* Allow boxes to wrap to next line if needed */
+  
+  /* Large Phones */
+  @media screen and (max-width: 600px) {
+    .countdown-container {
+      gap: 8px;
+    }
+    .countdown-box {
+      min-width: 48px;
+      width: 48px;
+    }
+    .countdown-value {
+      font-size: 1.3rem;
+    }
+    .countdown-label {
+      font-size: 0.8rem;
+    }
   }
-  .countdown-box {
-    min-width: 54px; /* Increased min-width for label fit */
-    width: 54px;
-    margin-bottom: 8px; /* Add vertical spacing if wrapping */
+  
+  /* Small Phones */
+  @media screen and (max-width: 480px) {
+    .countdown-section {
+      padding: 10px 0;
+      max-width: 98vw;
+    }
+    .countdown-title {
+      font-size: 0.95rem;
+    }
+    .countdown-container {
+      gap: 12px; /* Increased gap for better spacing */
+      flex-wrap: wrap; /* Allow boxes to wrap to next line if needed */
+    }
+    .countdown-box {
+      min-width: 54px; /* Increased min-width for label fit */
+      width: 54px;
+      margin-bottom: 8px; /* Add vertical spacing if wrapping */
+    }
+    .countdown-value {
+      font-size: 1rem;
+    }
+    .countdown-label {
+      font-size: 0.7rem;
+    }
   }
-  .countdown-value {
-    font-size: 1rem;
-  }
-  .countdown-label {
-    font-size: 0.7rem;
-  }
-}

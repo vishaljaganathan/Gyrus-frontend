@@ -1,21 +1,22 @@
-body {
-    font-family: "Helvetica", Arial, sans-serif; /* Set Helvetica as the primary font */
+/* =========================
+   Base Styles
+   ========================= */
+   body {
+    font-family: "Helvetica", Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background: #f6f0f0;
-}
-
-
-
-
-/* Hide by default */
-.home-countdown {
+  }
+  
+  /* =========================
+     Home Countdown (Mobile Only)
+     ========================= */
+  .home-countdown {
     display: none;
     background: #f6f0f0;
   }
   
-  /* Show and style on small screens */
   @media (max-width: 767px) {
     .home-countdown {
       background: #f6f0f0;
@@ -24,24 +25,35 @@ body {
       align-items: center;
       padding: 16px 0;
       width: 100%;
-      max-width: 480px;
       box-sizing: border-box;
     }
   }
   
-
-  
-/* Mobile Menu Styles */
-.mobile-menu-btn {
+  /* =========================
+     Mobile Menu Styles
+     ========================= */
+  .mobile-menu-btn {
     display: none;
     background: none;
     border: none;
     font-size: 24px;
     color: #2e3b4e;
     cursor: pointer;
-}   
-
-.mobile-menu {
+  }
+  
+  @media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+      margin-left: auto;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  .mobile-menu {
     display: none;
     width: 100%;
     background-color: #f9f8eb;
@@ -50,60 +62,65 @@ body {
     top: 100%;
     left: 0;
     z-index: 1000;
-}
-
-.mobile-menu.active {
+  }
+  
+  .mobile-menu.active {
     display: block;
-}
-
-.mobile-nav-links {
+  }
+  
+  .mobile-nav-links {
     display: flex;
     flex-direction: column;
     padding: 20px;
-}
-
-.mobile-nav-link {
+  }
+  
+  .mobile-nav-link {
     padding: 12px 0;
     font-size: 16px;
     color: #2e3b4e;
     text-decoration: none;
     border-bottom: 1px solid #e2e8f0;
-}
-
-.mobile-nav-link:hover {
+  }
+  
+  .mobile-nav-link:hover {
     color: #3b82f6;
-}
-
-
-
-
-/* Features Section */
-#why-gyrus {
+  }
+  
+  /* =========================
+     Features Section
+     ========================= */
+  #why-gyrus {
     padding: 50px 20px;
     background: #F6F0F0;
-}
-
-#why-gyrus h2 {
+  }
+  
+  #why-gyrus h2 {
     text-align: center;
-    font-size: clamp(1.8rem, 4vw, 2.5rem); /* Responsive font size */
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     font-weight: 700;
     margin-bottom: 40px;
     color: #009150;
-}
-
-.card-container {
+  }
+  
+  .card-container {
     height: auto;
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* Default: 1 card per row */
-    gap: 40px; /* Space between cards */
+    grid-template-columns: repeat(1, 1fr);
+    gap: 40px;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 0 10px; /* Add padding for smaller screens */
-    align-items: stretch; /* Ensure all cards stretch to the same height */
-}
-
-.info-card {
-    height: 100%; /* Make each card fill the grid row height */
+    padding: 0 10px;
+    align-items: stretch;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .info-card {
+    height: 100%;
     background: #eee;
     border-radius: 15px;
     color: #f9f8eb;
@@ -111,216 +128,168 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: stretch;
-    overflow: hidden; /* Prevent content overflow */
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-5px); /* Add hover effect */
+  }
+  
+  .info-card:hover {
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card-inner {
+  }
+  
+  .card-inner {
     display: flex;
     padding: 20px;
     height: 100%;
     align-items: center;
-    gap: 20px; /* Space between icon and text */
-    justify-content: space-between; 
-}
-
-
-.card-icon {
+    gap: 20px;
+    justify-content: space-between;
+  }
+  
+  .card-icon {
     flex: 0 0 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 15px; /* Add spacing for smaller screens */
-}
-
-.card-icon img {
+    margin-bottom: 15px;
+  }
+  
+  .card-icon img {
     width: 80px;
     height: auto;
-}
-
-
-.card-text {
+  }
+  
+  .card-text {
     flex: 1;
     padding: 0;
-}
-
-.card-text h3 {
-    font-size: clamp(1.2rem, 2.5vw, 1.5rem); /* Responsive font size */
+  }
+  
+  .card-text h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
     font-weight: 700;
     margin: 0 0 10px 0;
     color: #333;
-}
-
-.card-text p {
-    color:#171717;
-    font-size: clamp(0.7rem, 2vw, 0.9rem); /* Responsive font size */
+  }
+  
+  .card-text p {
+    color: #171717;
+    font-size: clamp(0.7rem, 2vw, 0.9rem);
     text-align: justify;
     margin: 0;
     line-height: 1.6;
-}
-
-/* Gradient Backgrounds */
-.orange {
+  }
+  
+  /* =========================
+     Gradient Backgrounds for Cards
+     ========================= */
+  .orange {
     background: linear-gradient(to right, rgb(255, 206, 108), rgb(248, 158, 27));
-}
-
-.green {
+  }
+  
+  .green {
     background: linear-gradient(to right, rgb(227, 250, 122), rgb(68, 177, 68));
-}
-
-.pink {
+  }
+  
+  .pink {
     background: linear-gradient(to right, rgb(237, 167, 203), rgb(207, 16, 140));
-}
-
-.blue {
+  }
+  
+  .blue {
     background: linear-gradient(to right, rgb(216, 231, 246), rgb(105, 157, 191), rgb(1, 88, 139));
-}
-
-.cyan {
+  }
+  
+  .cyan {
     background: linear-gradient(to right, rgb(122, 247, 255), rgb(0, 133, 141));
-}
-
-.purple {
+  }
+  
+  .purple {
     background: linear-gradient(to right, rgb(204, 169, 255), rgb(92, 0, 228));
-}
-
-/* About Section */
-.about-section {
+  }
+  
+  /* =========================
+     About Section
+     ========================= */
+  .about-section {
     padding: 50px;
-    background-color: 	#F6F0F0;
+    background-color: #F6F0F0;
     text-align: center;
-}
-
-.about-header {
+  }
+  
+  .about-header {
     margin-bottom: 30px;
-}
-
-.about-title {
+  }
+  
+  .about-title {
     font-size: 2.5rem;
     font-weight: 700;
     color: #009150;
     margin-bottom: 20px;
-}
-
-.about-content {
+  }
+  
+  .about-content {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.about-description {
+  }
+  
+  .about-description {
     font-size: 1.2rem;
     color: #4b5563;
     line-height: 1.8;
     text-align: justify;
-}
-
-/* Media Queries for Responsive Design */
-/* Tablet and Small Laptop Screens (768px - 1024px) */
-
-
-/* Mobile Devices (481px - 767px) */
-@media screen and (max-width: 767px) {
-    /* Show Mobile Menu Button */
+  }
+  
+  /* =========================
+     Responsive Design
+     ========================= */
+  
+  /* Tablet and Small Laptop Screens (768px - 1024px) */
+  /* (No specific rules in original, but add as needed) */
+  
+  /* Mobile Devices (481px - 767px) */
+  @media screen and (max-width: 767px) {
     .mobile-menu-btn {
-        display: block;
+      display: block;
     }
-
-
-}
-
-/* Small Mobile Devices (320px - 480px) - Includes most iPhones */
-@media screen and (max-width: 480px) {
-   
-    /* Features Section Adjustments */
+  }
+  
+  /* Small Mobile Devices (320px - 480px) */
+  @media screen and (max-width: 480px) {
     #why-gyrus {
-        padding: 40px 15px;
+      padding: 40px 15px;
     }
-
     .card-container {
-        gap: 15px;
+      gap: 15px;
     }
-
     .card-icon {
-        flex: 0 0 60px;
+      flex: 0 0 60px;
     }
-
     .card-icon img {
-        width: 50px;
+      width: 50px;
     }
-
-    /* About Section Adjustments */
     .about-section {
-        padding: 40px 20px;
+      padding: 40px 20px;
     }
-
     .about-title {
-        font-size: 2rem;
+      font-size: 2rem;
     }
-
     .about-description {
-        font-size: 1rem;
+      font-size: 1rem;
     }
-}
-
-/* iPhone 5/SE Landscape and Portrait */
-@media screen and (max-width: 320px) {
+  }
+  
+  /* iPhone 5/SE Landscape and Portrait */
+  @media screen and (max-width: 320px) {
     .main-text {
-        font-size: 1.4rem;
+      font-size: 1.4rem;
     }
-
     .phone-image {
-        width: 120px;
+      width: 120px;
     }
-
     .store-badge img {
-        width: 90px;
+      width: 90px;
     }
-
     .mobile-nav-link {
-        font-size: 14px;
+      font-size: 14px;
     }
-}
-
-
-
-
-
-
-/* For large screens (1024px and above) */
-@media screen and (min-width: 1024px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-    }
-}
-
-/* Mobile Menu Button */
-.mobile-menu-btn {
-    display: none; /* Hidden by default on larger screens */
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #2e3b4e;
-    cursor: pointer;
-}
-
-/* Show the menu button on small screens and align it to the right */
-@media screen and (max-width: 768px) {
-    .mobile-menu-btn {
-        display: block; /* Show the menu button */
-        margin-left: auto; /* Push the button to the right */
-    }
-
-    .navbar {
-        display: flex;
-        justify-content: space-between; /* Ensure proper spacing between logo and menu button */
-        align-items: center;
-    }
-}
-
-
-
+  }
+  

@@ -1,12 +1,17 @@
- body {
-  font-family: "Helvetica", Arial, sans-serif; /* Set Helvetica as the primary font */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Container Styling */
-.privacy-policy-container {
+/* =========================
+   Base Styles
+   ========================= */
+   body {
+    font-family: "Helvetica", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+     Policy Container
+     ========================= */
+  .privacy-policy-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
@@ -18,7 +23,9 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
   }
   
-  /* Heading Styles */
+  /* =========================
+     Headings
+     ========================= */
   .privacy-policy-container h1,
   .privacy-policy-container h2,
   .privacy-policy-container h3,
@@ -50,7 +57,9 @@
     font-size: 1.2rem;
   }
   
-  /* Paragraphs and Lists */
+  /* =========================
+     Paragraphs and Lists
+     ========================= */
   .privacy-content p,
   .privacy-content li {
     margin-bottom: 1rem;
@@ -63,7 +72,9 @@
     padding-left: 1.5rem;
   }
   
-  /* Links */
+  /* =========================
+     Links
+     ========================= */
   .privacy-content a {
     color: #009150;
     font-weight: 500;
@@ -74,13 +85,26 @@
     text-decoration: underline;
   }
   
-  /* Highlight important notes (optional) */
+  /* =========================
+     Highlight Important Notes
+     ========================= */
   .privacy-content strong,
   .privacy-content b {
     color: #00793f;
   }
   
-  /* Responsive Design */
+  /* =========================
+     Section Divider
+     ========================= */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, #009150, transparent);
+    margin: 2rem 0;
+  }
+  
+  /* =========================
+     Responsive Design
+     ========================= */
   @media (max-width: 768px) {
     .privacy-policy-container {
       padding: 1rem;
@@ -98,9 +122,4 @@
       font-size: 1.3rem;
     }
   }
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(to right, #009150, transparent);
-    margin: 2rem 0;
-  }
-    
+  

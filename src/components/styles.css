@@ -1,369 +1,347 @@
-
-/* Basic styles for Navbar */
-.navbar-countdown {
-  display: block;
-  margin-left: auto; /* Push the countdown to the far right */
-  text-align: right; /* Align the countdown content to the right */
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Add spacing if needed */
-  flex: 0 0 auto; /* Fix the countdown to the right */
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 10px;
-  background-color: #F6F0F0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  top: 0;
-  z-index: 1000;
-  color: #F6F0F0; /* Add this to ensure text is visible on dark background */
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 20px;
-  position: relative;
-  max-width: 1800px;
-  margin: 0 auto;
-  flex-wrap: wrap;
-}
-
-.logo-section {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto; /* Fix the logo section to the left */
-}
-
-.logo-image {
-  height: 100px;
-  width: auto;
-  margin-right: 10px;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2e3b4e;
-}
-
-.tagline {
-  font-size: 12px;
-  color: #2e3b4e;
-  margin-top: 4px;
-}
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-/* Navigation Links for Desktop */
-.nav-links {
-  display: flex; /* Show links by default on larger screens */
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  text-decoration: none;
-}
-
-/* Nav Link Styles + Animated Underline */
-.nav-link {
-  position: relative;
-  font-size: 16px;
-  font-weight: 600;
-  color: #2e3b4e;
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 8px;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Animated underline effect in #0071BC */
-.nav-link::after {
-  content: "";
-  display: block;
-  position: absolute;
-  left: 0;
-  bottom: 2px;
-  width: 100%;
-  height: 2px;
-  background: #0071BC;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  border-radius: 1px;
-  pointer-events: none;
-}
-
-
-.nav-link:hover::after {
-  transform: scaleX(1);
-}
-
-
-
-/* Navigation Links for Mobile */
-@media screen and (max-width: 768px) {
-  .nav-links {
-    display: none; /* Hide links by default on mobile */
-    flex-direction: column; /* Stack links vertically */
-    position: absolute;
-    top: 60px; /* Adjust based on your navbar height */
-    right: 10px;
+/* =========================
+   Navbar Countdown
+   ========================= */
+   .navbar-countdown {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+    text-align: right;
+    flex: 0 0 auto;
+  }
+  
+  /* =========================
+     Navbar Layout
+     ========================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
     background-color: #F6F0F0;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add a more prominent shadow */
-    border-radius: 12px; /* Rounded corners */
-    padding: 15px; /* Add padding inside the dropdown */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 0;
     z-index: 1000;
-    width: 220px; /* Slightly wider for better spacing */
-    opacity: 0; /* Start hidden */
-    transform: translateY(-10px); /* Slide in from above */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transition */
-  }
-
-  .nav-links.active {
-    display: flex; /* Show links when menu is toggled */
-    opacity: 1; /* Fully visible */
-    transform: translateY(0); /* Reset position */
-  }
-
-  .nav-link {
-    font-size: 16px; /* Slightly larger font size */
-    font-weight: 600; /* Make text bold */
-    color: #2e3b4e; /* Darker text color */
-    text-decoration: none;
-    padding: 10px 15px; /* Add padding for better spacing */
-    border-radius: 8px; /* Rounded corners for links */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
-  }
-
-
-}
-
-/* Sticky Navbar for Small Screens */
-@media screen and (max-width: 768px) {
-  .navbar {
-    position: sticky; /* Make the navbar sticky */
-    top: 0; /* Stick to the top of the viewport */
-    z-index: 1000; /* Ensure it stays above other elements */
-    background-color: #F6F0F0; /* Ensure a consistent background */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  }
-}
-
-/* Mobile Menu Button */
-@media screen and (max-width: 768px) {
-  .mobile-menu-btn {
-    display: block; /* Show mobile menu button */
-    background: none;
-    border: none;
-    font-size: 28px; /* Slightly larger icon */
-    color: #2e3b4e;
-    cursor: pointer;
-    transition: transform 0.3s ease; /* Add animation to the button */
-  }
-
-  .mobile-menu-btn:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
-}
-
-/* Large Tablets and Small Laptops (769px - 1024px) */
-@media screen and (max-width: 1024px) {
-  .navbar-container {
-    padding: 15px 30px;
-  }
-  
-  .logo-image {
-    height: 80px;
-  }
-  
-  .nav-links {
-    gap: 15px;
-  }
-}
-
-/* Standard Tablets (601px - 768px) */
-@media screen and (max-width: 768px) {
-  .navbar {
-    padding: 15px 20px;
+    color: #F6F0F0;
   }
   
   .navbar-container {
-    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+    position: relative;
+    max-width: 1800px;
+    margin: 0 auto;
+    flex-wrap: wrap;
   }
   
-  .logo-image {
-    height: 70px;
-  }
-}
-
-/* Large Phones (481px - 600px) - Includes iPhone 6/7/8 Plus */
-@media screen and (max-width: 600px) {
-  .navbar {
-    padding: 12px 15px;
-  }
-  
+  /* =========================
+     Logo Section
+     ========================= */
   .logo-section {
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
   }
   
   .logo-image {
-    height: 60px;
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+  }
+  
+  .logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #2e3b4e;
   }
   
   .tagline {
-    display: none; /* Hide tagline to save space */
-  }
-
-  .navbar-countdown{
-    display: none; /* Optionally hide countdown on smaller screens */
-  }
-}
-
-/* Small Phones (320px - 480px) - Includes iPhone 5/SE and newer iPhones */
-@media screen and (max-width: 480px) {
-  .navbar {
-    padding: 10px;
+    font-size: 12px;
+    color: #2e3b4e;
+    margin-top: 4px;
   }
   
-  .logo {
-    font-size: 18px;
+  .fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
   }
   
-  .logo-image {
-    height: 50px;
-  }
-}
-
-/* iPhone 14 Pro Max/Plus Landscape (428px) */
-@media screen and (max-width: 480px) and (max-height: 428px) and (orientation: landscape) {
-  .navbar {
-    padding: 8px 10px;
-  }
-  
-  .logo-image {
-    height: 40px;
-  }
-  
-  .mobile-menu-btn {
-    font-size: 20px;
-  }
-}
-
-/* iPhone 12/13 Mini (375px) */
-@media screen and (max-width: 375px) {
-  .logo {
-    font-size: 16px;
-  }
-  
-  .logo-image {
-    height: 45px;
-  }
-}
-
-/* iPhone 5/SE (320px) */
-@media screen and (max-width: 320px) {
-  .logo {
-    font-size: 15px;
-  }
-  
-  .logo-image {
-    height: 40px;
-  }
-}
-
-/* iPad Pro 12.9" (1024x1366) */
-@media screen and (width: 1024px) and (height: 1366px) {
-  .navbar-container {
-    max-width: 950px;
-  }
-}
-
-/* iPad Pro 11" (834x1194) */
-@media screen and (width: 834px) and (height: 1194px) {
-  .navbar-container {
-    max-width: 800px;
-  }
-}
-
-/* iPad Mini (768x1024) */
-@media screen and (width: 768px) and (height: 1024px) {
-  .navbar-container {
-    max-width: 700px;
-  }
-}
-
-/* Desktop HD Screens (1440px and up) */
-@media screen and (min-width: 1440px) {
-  .navbar-container {
-    max-width: 1400px;
-  }
-}
-
-/* 4K Screens (2560px and up) */
-@media screen and (min-width: 2560px) {
-  .navbar-container {
-    max-width: 2400px;
-    padding: 25px 60px;
-  }
-  
-  .logo-image {
-    height: 120px;
+  /* =========================
+     Navigation Links (Desktop)
+     ========================= */
+  .nav-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    text-decoration: none;
   }
   
   .nav-link {
-    font-size: 18px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2e3b4e;
     text-decoration: none;
-  }
-}
-
-/* Foldable Devices (e.g., Samsung Z Fold) */
-@media screen and (min-width: 768px) and (max-height: 600px) {
-  .navbar {
-    padding: 10px 20px;
-  }
-  
-  .logo-image {
-    height: 60px;
-  }
-
-  .navbar-countdown {
-    margin-left: 0; /* Reset margin for better alignment */
-    display: none !important;
-  }
-
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .navbar {
-    background-color: #F6F0F0;
-    color: #1a1a1a;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .logo, .tagline, .nav-link {
-    color: #009150;
-    text-decoration: none;
-  }
-  
-  .mobile-menu-btn {
-    color: #F6F0F0;
-  }
-  /* Keep underline blue in dark mode as well */
+  /* Animated underline effect in #0071BC */
   .nav-link::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 2px;
     background: #0071BC;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+    border-radius: 1px;
+    pointer-events: none;
   }
-}
+  
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* =========================
+     Mobile Menu Button
+     ========================= */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #2e3b4e;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .mobile-menu-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  /* =========================
+     Responsive Styles
+     ========================= */
+  
+  /* Tablets and below */
+  @media screen and (max-width: 1024px) {
+    .navbar-container {
+      padding: 15px 30px;
+    }
+    .logo-image {
+      height: 80px;
+    }
+    .nav-links {
+      gap: 15px;
+    }
+  }
+  
+  /* Standard Tablets */
+  @media screen and (max-width: 768px) {
+    .navbar {
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: #F6F0F0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-container {
+      padding: 15px 0;
+    }
+    .logo-image {
+      height: 70px;
+    }
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: #F6F0F0;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      z-index: 1000;
+      width: 220px;
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .nav-links.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .nav-link {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2e3b4e;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .mobile-menu-btn {
+      display: block;
+    }
+  }
+  
+  /* Large Phones */
+  @media screen and (max-width: 600px) {
+    .navbar {
+      padding: 12px 15px;
+    }
+    .logo-section {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo-image {
+      height: 60px;
+    }
+    .tagline {
+      display: none;
+    }
+    .navbar-countdown {
+      display: none;
+    }
+  }
+  
+  /* Small Phones */
+  @media screen and (max-width: 480px) {
+    .navbar {
+      padding: 10px;
+    }
+    .logo {
+      font-size: 18px;
+    }
+    .logo-image {
+      height: 50px;
+    }
+  }
+  
+  /* iPhone 14 Pro Max/Plus Landscape */
+  @media screen and (max-width: 480px) and (max-height: 428px) and (orientation: landscape) {
+    .navbar {
+      padding: 8px 10px;
+    }
+    .logo-image {
+      height: 40px;
+    }
+    .mobile-menu-btn {
+      font-size: 20px;
+    }
+  }
+  
+  /* iPhone 12/13 Mini */
+  @media screen and (max-width: 375px) {
+    .logo {
+      font-size: 16px;
+    }
+    .logo-image {
+      height: 45px;
+    }
+  }
+  
+  /* iPhone 5/SE */
+  @media screen and (max-width: 320px) {
+    .logo {
+      font-size: 15px;
+    }
+    .logo-image {
+      height: 40px;
+    }
+  }
+  
+  /* iPad Pro 12.9" */
+  @media screen and (width: 1024px) and (height: 1366px) {
+    .navbar-container {
+      max-width: 950px;
+    }
+  }
+  
+  /* iPad Pro 11" */
+  @media screen and (width: 834px) and (height: 1194px) {
+    .navbar-container {
+      max-width: 800px;
+    }
+  }
+  
+  /* iPad Mini */
+  @media screen and (width: 768px) and (height: 1024px) {
+    .navbar-container {
+      max-width: 700px;
+    }
+  }
+  
+  /* Desktop HD Screens */
+  @media screen and (min-width: 1440px) {
+    .navbar-container {
+      max-width: 1400px;
+    }
+  }
+  
+  /* 4K Screens */
+  @media screen and (min-width: 2560px) {
+    .navbar-container {
+      max-width: 2400px;
+      padding: 25px 60px;
+    }
+    .logo-image {
+      height: 120px;
+    }
+    .nav-link {
+      font-size: 18px;
+      text-decoration: none;
+    }
+  }
+  
+  /* Foldable Devices */
+  @media screen and (min-width: 768px) and (max-height: 600px) {
+    .navbar {
+      padding: 10px 20px;
+    }
+    .logo-image {
+      height: 60px;
+    }
+    .navbar-countdown {
+      margin-left: 0;
+      display: none !important;
+    }
+  }
+  
+  /* =========================
+     Dark Mode Support
+     ========================= */
+  @media (prefers-color-scheme: dark) {
+    .navbar {
+      background-color: #F6F0F0;
+      color: #1a1a1a;
+    }
+    .logo, .tagline, .nav-link {
+      color: #009150;
+      text-decoration: none;
+    }
+    .mobile-menu-btn {
+      color: #F6F0F0;
+    }
+    .nav-link::after {
+      background: #0071BC;
+    }
+  }
+  

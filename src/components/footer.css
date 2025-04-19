@@ -1,40 +1,56 @@
-.footer-section{
-background-color: #F6F0F0;
-}
-.footer-gradient {
-    height: 50px; /* Adjust height as needed */
-    background: #4CAF50;
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin-bottom: 20px; /* Add gap below the gradient */
+/* =========================
+   Footer Section
+   ========================= */
+   .footer-section {
+    background-color: #F6F0F0;
   }
   
+  /* =========================
+     Footer Gradient Bar
+     ========================= */
+  .footer-gradient {
+    height: 50px; /* Adjust height as needed */
+    background: #4CAF50;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+    margin-bottom: 20px;     /* Gap below the gradient */
+  }
+  
+  /* =========================
+     Footer Content Layout
+     ========================= */
   .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   
+  /* =========================
+     Footer Links
+     ========================= */
   .footer-links {
     display: flex;
     justify-content: center; /* Center the links horizontally */
-    margin-bottom: 20px; /* Add gap below the links */
-    color: #f9f8eb; /* White text for better contrast */
+    margin-bottom: 20px;     /* Gap below the links */
+    color: #f9f8eb;          /* White text for better contrast */
   }
   
   .footer-link {
     font-size: 14px;
-    color: #f9f8eb; /* White text for better contrast */
+    color: #f9f8eb;          /* White text for better contrast */
     text-decoration: none;
     transition: color 0.3s;
     padding: 10px;
   }
   
   .footer-link:hover {
-    color: #424242; /* Lighter color on hover */
+    color: #424242;          /* Lighter color on hover */
   }
   
+  /* =========================
+     Footer Logo
+     ========================= */
   .footer-logo img {
     width: 60px;
     height: auto;
@@ -42,6 +58,9 @@ background-color: #F6F0F0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
+  /* =========================
+     Footer Copyright
+     ========================= */
   .footer-copyright {
     font-size: 14px;
     color: #424242;

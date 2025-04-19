@@ -1,41 +1,33 @@
+
 import React, { useState, useEffect } from 'react';
-import './countdown.css'; // This will contain the CSS we created earlier
+import './countdown.css';
 
 const Countdown = () => {
+  // Helper to calculate remaining time
   const calculateTimeLeft = () => {
-    // NEET 2025 exam date (May 4, 2025)
     const targetDate = new Date('2025-05-04T13:59:59');
     const currentTime = new Date();
     const difference = targetDate - currentTime;
 
-    let timeLeft = {
-      days: 0,
-      hours: 0,
-      minutes: 0,
-      seconds: 0
-    };
-
-    if (difference > 0) {
-      timeLeft = {
-        days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-        minutes: Math.floor((difference / 1000 / 60) % 60),
-        seconds: Math.floor((difference / 1000) % 60),
-      };
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
     }
 
-    return timeLeft;
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
   };
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
   const [isClient, setIsClient] = useState(false);
 
-  // Animation for changing numbers
+  // Animate number change
   useEffect(() => {
-    setIsClient(true); // To handle SSR hydration mismatch
-    const elements = ['days', 'hours', 'minutes', 'seconds'];
-    
-    elements.forEach(id => {
+    setIsClient(true); // Prevent SSR hydration mismatch
+    ['days', 'hours', 'minutes', 'seconds'].forEach(id => {
       const el = document.getElementById(id);
       if (el) {
         el.classList.add('changing');
@@ -47,18 +39,14 @@ const Countdown = () => {
   // Update countdown every second
   useEffect(() => {
     if (!isClient) return;
-
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-
     return () => clearInterval(timer);
   }, [isClient]);
 
-  // Format numbers to always show 2 digits (e.g., 05 instead of 5)
-  const formatNumber = (num) => {
-    return num < 10 ? `0${num}` : num;
-  };
+  // Format numbers to always show 2 digits
+  const formatNumber = num => (num < 10 ? `0${num}` : num);
 
   return (
     <div className="countdown-section">
