@@ -3,14 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   padding: 16px 0;
-  margin: 0 auto 16px auto;
   max-width: 480px;
-  width: 100%;
-  box-sizing: border-box;
+  width: calc(100% - 32px);
+
 }
 
 .countdown-title {
@@ -38,9 +34,9 @@
 }
 
 .countdown-value {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #2d3748;
+  color: #0071BC;
   margin-bottom: 4px;
   width: 50px;
   text-align: center;
@@ -106,11 +102,13 @@
     font-size: 0.95rem;
   }
   .countdown-container {
-    gap: 6px;
+    gap: 12px; /* Increased gap for better spacing */
+    flex-wrap: wrap; /* Allow boxes to wrap to next line if needed */
   }
   .countdown-box {
-    min-width: 38px;
-    width: 38px;
+    min-width: 54px; /* Increased min-width for label fit */
+    width: 54px;
+    margin-bottom: 8px; /* Add vertical spacing if wrapping */
   }
   .countdown-value {
     font-size: 1rem;

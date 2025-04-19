@@ -24,9 +24,6 @@ body {
       width: 100%;
       max-width: 480px;
       box-sizing: border-box;
-      background: #fff; /* Optional: add a background for contrast */
-      border-radius: 12px; /* Optional: rounded corners */
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Optional: subtle shadow */
     }
   }
   

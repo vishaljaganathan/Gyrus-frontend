@@ -1,9 +1,20 @@
-/* Basic styles for Navbar and Footer */
+
+/* Basic styles for Navbar */
+.navbar-countdown {
+  display: block;
+  margin-left: auto; /* Push the countdown to the far right */
+  text-align: right; /* Align the countdown content to the right */
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Add spacing if needed */
+  flex: 0 0 auto; /* Fix the countdown to the right */
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 20px;
+  padding: 5px 10px;
   background-color: #F6F0F0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -25,7 +36,7 @@
 
 .logo-section {
   display: flex;
-  align-items: anchor-center;
+  align-items: center;
   flex: 0 0 auto; /* Fix the logo section to the left */
 }
 
@@ -52,46 +63,6 @@
   transition: opacity 1s ease-in-out;
 }
 
-/* Countdown Section */
-.countdown-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.countdown-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #009150;
-  text-align: center;
-  margin-bottom: 5px;
-}
-
-.countdown-container {
-  display: flex;
-}
-
-.countdown-box {
-  text-align: center;
-}
-
-.countdown-value {
-  font-size: 20px;
-  font-weight: 700;
-  color: #3b82f6;
-  padding: 8px 12px;
-  border-radius: 6px;
-  margin-bottom: 4px;
-  width: 50px;
-  text-align: center;
-}
-
-.countdown-label {
-  font-size: 12px;
-  color: #009150;
-  text-transform: uppercase;
-}
-
 /* Navigation Links for Desktop */
 .nav-links {
   display: flex; /* Show links by default on larger screens */
@@ -101,6 +72,46 @@
   flex: 1;
   text-decoration: none;
 }
+
+/* Nav Link Styles + Animated Underline */
+.nav-link {
+  position: relative;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e3b4e;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Animated underline effect in #0071BC */
+.nav-link::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 2px;
+  background: #0071BC;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+
 
 /* Navigation Links for Mobile */
 @media screen and (max-width: 768px) {
@@ -137,14 +148,7 @@
     transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
   }
 
-  .nav-link:hover {
-    background-color: #3498db; /* Blue background on hover */
-    color: #F6F0F0; /* White text on hover */
-  }
 
-  .nav-link:active {
-    background-color: #2980b9; /* Darker blue for active state */
-  }
 }
 
 /* Sticky Navbar for Small Screens */
@@ -175,76 +179,6 @@
   }
 }
 
-/* Navbar Countdown */
-.navbar-countdown {
-  display: block;
-  margin-left: auto; /* Push the countdown to the far right */
-  text-align: right; /* Align the countdown content to the right */
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Add spacing if needed */
-  flex: 0 0 auto; /* Fix the countdown to the right */
-}
-
-/* Footer Section */
-.footer-section {
-  background-color: #F6F0F0;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-  }
-
-.footer-gradient {
-  height: 30px; /* Adjust height as needed */
-  background: #4CAF50;
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  margin-bottom: 20px; /* Add gap below the gradient */
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center; /* Center the links horizontally */
-  margin-bottom: 20px; /* Add gap below the links */
-  color: #F6F0F0; /* White text for better contrast */
-}
-
-.footer-link {
-  font-size: 14px;
-  color: #F6F0F0; /* White text for better contrast */
-  text-decoration: none;
-  transition: color 0.3s;
-  padding: 10px;
-}
-
-.footer-link:hover {
-  color: #424242; /* Lighter color on hover */
-}
-
-.footer-logo img {
-  width: 60px;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.footer-copyright {
-  font-size: 14px;
-  color: #424242;
-  margin-top: 10px;
-  font-weight: 500;
-}
-
-/* Media Queries for Responsive Navbar & Footer */
-
 /* Large Tablets and Small Laptops (769px - 1024px) */
 @media screen and (max-width: 1024px) {
   .navbar-container {
@@ -257,15 +191,6 @@
   
   .nav-links {
     gap: 15px;
-  }
-  
-  .countdown-box {
-    width: 50px;
-    padding: 4px;
-  }
-  
-  .countdown-value {
-    font-size: 1.3rem;
   }
 }
 
@@ -281,28 +206,6 @@
   
   .logo-image {
     height: 70px;
-  }
-  
-  .navbar-countdown {
-    margin-left: 0; /* Reset margin for better alignment */
-    display: none !important;
-  }
-  
-  .countdown-title {
-    font-size: 1rem;
-  }
-  
-  .countdown-box {
-    width: 40px;
-  }
-  
-  .countdown-value {
-    font-size: 1.1rem;
-  }
-  
-  .footer-links {
-    flex-wrap: wrap;
-    justify-content: center;
   }
 }
 
@@ -324,17 +227,9 @@
   .tagline {
     display: none; /* Hide tagline to save space */
   }
-  
+
   .navbar-countdown{
     display: none; /* Optionally hide countdown on smaller screens */
-  }
-  
-  .footer-gradient {
-    height: 40px;
-  }
-  
-  .footer-links {
-    gap: 10px 15px; /* row and column gap */
   }
 }
 
@@ -350,19 +245,6 @@
   
   .logo-image {
     height: 50px;
-  }
-  
-  .footer-content {
-    padding: 0 10px;
-  }
-  
-  .footer-links {
-    font-size: 12px;
-    gap: 8px 12px;
-  }
-  
-  .footer-copyright {
-    font-size: 12px;
   }
 }
 
@@ -390,10 +272,6 @@
   .logo-image {
     height: 45px;
   }
-  
-  .footer-logo img {
-    width: 50px;
-  }
 }
 
 /* iPhone 5/SE (320px) */
@@ -404,11 +282,6 @@
   
   .logo-image {
     height: 40px;
-  }
-  
-  .footer-links {
-    flex-direction: column;
-    gap: 8px;
   }
 }
 
@@ -466,6 +339,12 @@
   .logo-image {
     height: 60px;
   }
+
+  .navbar-countdown {
+    margin-left: 0; /* Reset margin for better alignment */
+    display: none !important;
+  }
+
 }
 
 /* Dark Mode Support */
@@ -483,16 +362,8 @@
   .mobile-menu-btn {
     color: #F6F0F0;
   }
-  
-  .footer-section {
-    background-color: #F7F7F7;
-  }
-  
-  .footer-link {
-    color: #F7F7F7;;
-  }
-
-  .footer-copyright{
-    color:#424242;
+  /* Keep underline blue in dark mode as well */
+  .nav-link::after {
+    background: #0071BC;
   }
 }
