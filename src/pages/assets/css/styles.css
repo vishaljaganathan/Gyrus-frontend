@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background: #f6f0f0;
 }
 
 
@@ -17,6 +18,7 @@ body {
   /* Show and style on small screens */
   @media (max-width: 767px) {
     .home-countdown {
+      background: #f6f0f0;
       display: flex !important;
       justify-content: center;
       align-items: center;
