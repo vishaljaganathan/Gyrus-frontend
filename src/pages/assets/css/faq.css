@@ -2,267 +2,270 @@
 /* =========================
    Base Styles
    ========================= */
-   body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    background: #f5f7fa;
-    color: #222;
-  }
-  
-  /* =========================
-     FAQ Section Layout
-     ========================= */
-  .faq-section {
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px;
-    position: relative;
-  }
-  
-  /* =========================
-     FAQ Title
-     ========================= */
-  .faq-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #009150;
-    margin-bottom: 24px;
-  }
-  
-  /* =========================
-     Search Bar (Below Title, Responsive)
-     ========================= */
-  .faq-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 32px;
-    width: 100%;
-    position: relative;
-    min-height: 48px;
-  }
-  
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f5f7fa;
+  color: #222;
+}
+
+/* =========================
+   FAQ Section Layout
+   ========================= */
+.faq-section {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* =========================
+   FAQ Title
+   ========================= */
+.faq-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #009150;
+  margin-bottom: 24px;
+}
+
+/* =========================
+   Search Bar (Below Title, Responsive)
+   ========================= */
+.faq-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+  width: 100%;
+  position: relative;
+  min-height: 48px;
+}
+
+.faq-search-bar {
+  display: flex;
+  align-items: center;
+  width: 60%;
+  min-width: 220px;
+  max-width: 420px;
+  position: relative;
+  margin-top: 0;
+}
+
+.faq-search-input {
+  width: 100%;
+  padding: 8px 40px 8px 14px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.faq-search-input:focus {
+  border: 1.5px solid #0071BC;
+}
+
+.faq-search-icon {
+  position: absolute;
+  right: 14px;
+  color: #0071BC;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.faq-no-results {
+  text-align: center;
+  color: #888;
+  margin-top: 32px;
+  font-size: 1.1rem;
+}
+
+/* =========================
+   FAQ Card Styles
+   ========================= */
+.faq-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  padding: 22px 32px;
+  cursor: pointer;
+  transition: 
+    box-shadow 0.3s cubic-bezier(.4,2,.6,1),
+    transform 0.2s cubic-bezier(.4,2,.6,1),
+    background 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+  border: 1.5px solid #e0e7ef;
+}
+
+.faq-card:active {
+  transform: scale(0.98);
+}
+
+/* Ripple effect on click */
+.faq-card::after {
+  content: '';
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  background: rgba(0,145,80,0.08);
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 1;
+}
+.faq-card:active::after {
+  opacity: 1;
+  transform: scale(2.5);
+  transition: 0s;
+}
+
+/* =========================
+   FAQ Question Row (Icon & Text Columns)
+   ========================= */
+.faq-question {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #1a3d2c;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: color 0.2s;
+  position: relative;
+  z-index: 2;
+  min-height: 40px;
+}
+.faq-question.open {
+  color: #009150;
+}
+
+.faq-question-icon {
+  flex: 0 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-question-text {
+  flex: 1 1 0%;
+  display: flex;
+  align-items: center;
+  word-break: break-word;
+}
+
+/* =========================
+   FAQ Icon
+   ========================= */
+.faq-icon {
+  font-size: 1.1rem;
+  color: #009150;
+  transition: color 0.2s;
+}
+.faq-question.open .faq-icon {
+  color: #009150;
+}
+
+/* =========================
+   Chevron Icon Animation
+   ========================= */
+.faq-chevron {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1), color 0.2s;
+  font-size: 1.3rem;
+  color: #b0b0b0;
+}
+.faq-question.open .faq-chevron {
+  transform: rotate(90deg);
+  color: #009150;
+}
+
+/* =========================
+   FAQ Answer Animation
+   ========================= */
+.faq-answer {
+  margin-top: 0;
+  font-size: 1.01rem;
+  line-height: 1.7;
+  color: #3c4a4e;
+  border-radius: 0 0 14px 14px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 
+    max-height 0.5s cubic-bezier(.4,2,.6,1),
+    opacity 0.4s cubic-bezier(.4,2,.6,1),
+    margin-top 0.3s;
+  will-change: max-height, opacity;
+  pointer-events: none;
+  padding: 0 2px;
+  background: none;
+}
+.faq-answer.show {
+  text-align: justify;
+  max-height: 500px;
+  opacity: 1;
+  pointer-events: auto;
+  padding: 16px 2px 2px 2px;
+  background: none;
+}
+
+/* =========================
+   Keyboard Accessibility
+   ========================= */
+.faq-question:focus {
+  outline: 2px solid #009150;
+  outline-offset: 2px;
+  background: #e9fbee;
+}
+
+/* =========================
+   Responsive Styles
+   ========================= */
+@media (max-width: 900px) {
   .faq-search-bar {
-    display: flex;
-    align-items: center;
-    width: 60%;
-    min-width: 220px;
-    max-width: 420px;
-    position: relative;
-    margin-top: 0;
+    width: 80%;
+    max-width: 100%;
   }
-  
-  .faq-search-input {
-    width: 100%;
-    padding: 8px 40px 8px 14px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 1rem;
-    outline: none;
-    transition: border 0.2s;
-    background: #fff;
-    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .faq-title {
+    font-size: 2rem;
   }
-  
-  .faq-search-input:focus {
-    border: 1.5px solid #0071BC;
-  }
-  
-  .faq-search-icon {
-    position: absolute;
-    right: 14px;
-    color: #0071BC;
-    font-size: 1.1rem;
-    pointer-events: none;
-  }
-  
-  .faq-no-results {
-    text-align: center;
-    color: #888;
-    margin-top: 32px;
-    font-size: 1.1rem;
-  }
-  
-  /* =========================
-     FAQ Card Styles
-     ========================= */
   .faq-card {
-    background: #fff;
-    border-radius: 18px;
-    margin-bottom: 20px;
-    padding: 22px 32px;
-    cursor: pointer;
-    transition: 
-      box-shadow 0.3s cubic-bezier(.4,2,.6,1),
-      transform 0.2s cubic-bezier(.4,2,.6,1),
-      background 0.3s;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-    position: relative;
-    overflow: hidden;
-    border: 1.5px solid #e0e7ef;
+    padding: 15px 12px;
   }
-  
-  .faq-card:active {
-    transform: scale(0.98);
-  }
-  
-  /* Ripple effect on click */
-  .faq-card::after {
-    content: '';
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    border-radius: 50%;
-    opacity: 0;
-    background: rgba(0,145,80,0.08);
-    transition: opacity 0.5s, transform 0.5s;
-    z-index: 1;
-  }
-  .faq-card:active::after {
-    opacity: 1;
-    transform: scale(2.5);
-    transition: 0s;
-  }
-  
-  /* =========================
-     FAQ Question Row
-     ========================= */
   .faq-question {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 18px;
-    font-size: 1.08rem;
-    font-weight: 600;
-    color: #1a3d2c;
-    cursor: pointer;
-    user-select: none;
-    outline: none;
-    transition: color 0.2s;
-    position: relative;
-    z-index: 2;
+    font-size: 1rem;
   }
-  .faq-question.open {
-    color: #009150;
-  }
-  
-  .faq-question-icon {
-    flex: 0 0 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .faq-question-text {
-    flex: 1 1 0%;
-    display: flex;
-    align-items: center;
-    word-break: break-word;
-  }
-  
-  /* =========================
-     FAQ Icon
-     ========================= */
-  .faq-icon {
-    font-size: 1.1rem;
-    color: #009150;
-    transition: color 0.2s;
-  }
-  .faq-question.open .faq-icon {
-    color: #009150;
-  }
-  
-  /* =========================
-     Chevron Icon Animation
-     ========================= */
-  .faq-chevron {
-    display: inline-block;
-    transition: transform 0.4s cubic-bezier(.4,2,.6,1), color 0.2s;
-    font-size: 1.3rem;
-    color: #b0b0b0;
-  }
-  .faq-question.open .faq-chevron {
-    transform: rotate(90deg);
-    color: #009150;
-  }
-  
-  /* =========================
-     FAQ Answer Animation
-     ========================= */
   .faq-answer {
+    font-size: 0.97rem;
+    padding: 12px 2px 2px 2px;
+  }
+  .faq-header {
+    min-height: 40px;
+  }
+  .faq-search-bar {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     margin-top: 0;
-    font-size: 1.01rem;
-    line-height: 1.7;
-    color: #3c4a4e;
-    border-radius: 0 0 14px 14px;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: 
-      max-height 0.5s cubic-bezier(.4,2,.6,1),
-      opacity 0.4s cubic-bezier(.4,2,.6,1),
-      margin-top 0.3s;
-    will-change: max-height, opacity;
-    pointer-events: none;
-    padding: 0 2px;
-    background: none;
   }
-  .faq-answer.show {
-    margin-top: 18px;
-    max-height: 500px;
-    opacity: 1;
-    pointer-events: auto;
-    padding: 16px 2px 2px 2px;
-    background: none;
+  .faq-search-input {
+    font-size: 0.98rem;
+    padding: 8px 36px 8px 12px;
   }
-  
-  /* =========================
-     Keyboard Accessibility
-     ========================= */
-  .faq-question:focus {
-    outline: 2px solid #009150;
-    outline-offset: 2px;
-    background: #e9fbee;
-  }
-  
-  /* =========================
-     Responsive Styles
-     ========================= */
-  @media (max-width: 900px) {
-    .faq-search-bar {
-      width: 80%;
-      max-width: 100%;
-    }
-  }
-  
-  @media (max-width: 600px) {
-    .faq-title {
-      font-size: 2rem;
-    }
-    .faq-card {
-      padding: 15px 12px;
-    }
-    .faq-question {
-      font-size: 1rem;
-    }
-    .faq-answer {
-      font-size: 0.97rem;
-      padding: 12px 2px 2px 2px;
-    }
-    .faq-header {
-      min-height: 40px;
-    }
-    .faq-search-bar {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      margin-top: 0;
-    }
-    .faq-search-input {
-      font-size: 0.98rem;
-      padding: 8px 36px 8px 12px;
-    }
-  }
-  
+}
