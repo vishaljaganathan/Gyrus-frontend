@@ -11,6 +11,7 @@ body {
 /* Hide by default */
 .home-countdown {
     display: none;
+    background: #f6f0f0;
   }
   
   /* Show and style on small screens */
@@ -20,7 +21,6 @@ body {
       justify-content: center;
       align-items: center;
       padding: 16px 0;
-      margin: 0 auto 16px auto;
       width: 100%;
       max-width: 480px;
       box-sizing: border-box;
