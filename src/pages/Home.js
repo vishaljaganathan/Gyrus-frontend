@@ -53,12 +53,12 @@ const Home = () => {
   <div className="right-content">
     <div className="qr-section">
       <div className="store-badge">
-        <img src="/images/qr.png" alt="App Store QR" />
-        <img src="/images/appstore.png" alt="App Store Badge" />
+      <img src="/images/qr.png" alt="Play Store QR" />
+      <img src="/images/playstore.png" alt="Play Store Badge" />
       </div>
       <div className="store-badge">
-        <img src="/images/qr.png" alt="Play Store QR" />
-        <img src="/images/playstore.png" alt="Play Store Badge" />
+      <img src="/images/qr.png" alt="App Store QR" />
+        <img src="/images/appstore.png" alt="App Store Badge" />
       </div>
     </div>
   </div>
