@@ -40,10 +40,12 @@ const Contact = () => {
   }
 
   try {
-    const response = await axios.post('/api/send-email', formData, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+    const response = await axios.post('/api/send-email', {
+      name,
+      email,
+      phone,
+      subject,
+      message,
     });
 
     if (response.data.success) {
