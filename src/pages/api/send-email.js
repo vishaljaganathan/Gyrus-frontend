@@ -12,32 +12,52 @@ export default async function handler(req, res) {
     return res.status(400).json({ success: false, message: 'Missing required fields' });
   }
 
+  // Create the transporter
+  let transporter;
   try {
-    const transporter = nodemailer.createTransport({
+    transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: true,
+      secure: true, // Use SSL
       auth: {
-        user: process.env.EMAIL_USER, // your Gmail address
-        pass: process.env.EMAIL_PASS, // your Gmail app password
+        user: process.env.EMAIL_USER, // your Gmail address (from .env.local)
+        pass: process.env.EMAIL_PASS, // your Gmail App Password (not real password)
       },
     });
+  } catch (error) {
+    console.error('Error creating transporter:', error);
+    return res.status(500).json({ success: false, message: 'Internal server error while setting up email transporter.' });
+  }
 
-    await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_TO, // your receiving email address
-      subject: subject || 'New Contact Form Submission',
-      text: `
+  // Email options
+  const mailOptions = {
+    from: `"${name}" <${process.env.EMAIL_USER}>`, // sender (your Gmail)
+    to: process.env.EMAIL_TO,                      // receiver (you)
+    subject: subject || 'New Contact Form Submission',
+    text: `
+New Message from Contact Form:
+
 Name: ${name}
 Email: ${email}
-Phone: ${phone}
-Message: ${message}
-      `,
-    });
+Phone: ${phone || 'Not Provided'}
+Subject: ${subject}
+Message:
+${message}
+    `,
+  };
 
-    res.status(200).json({ success: true });
+  // Send the email
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully:', info.messageId);
+
+    return res.status(200).json({ success: true, message: 'Email sent successfully.' });
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ success: false, message: 'Error sending email' });
+
+    if (error.response) {
+      console.error('Nodemailer response error:', error.response);
+    }
+    return res.status(500).json({ success: false, message: 'Failed to send email. Please try again later.' });
   }
 }
