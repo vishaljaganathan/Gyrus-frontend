@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/contact.css';
-
-// Make sure FontAwesome CSS is loaded globally (e.g., in index.html or via npm)
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,6 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,57 +24,57 @@ const Contact = () => {
     }));
   };
 
-
-
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setSubmitStatus(null);
-
-  // Basic validation
-  if (!formData.name || !formData.email || !formData.message) {
-    setSubmitStatus('error');
-    setIsSubmitting(false);
-    return;
-  }
-
-  try {
-    const response = await axios.post('/api/send-email', formData, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.data.success) {
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: 'All Subjects',
-        message: ''
-      });
-    } else {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+  
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
       setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
     }
-  } catch (error) {
-    console.error('Error submitting form:', error);
-    setSubmitStatus('error');
-    // You can show more specific error messages
-    if (error.response) {
-      console.log('Server responded with:', error.response.data);
+  
+    try {
+      const response = await axios.post('/api/send-email', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.data.success) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: 'All Subjects',
+          message: ''
+        });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitStatus('error');
+      // Log the response from the backend
+      if (error.response) {
+        console.log('Server responded with:', error.response.data);
+      }
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 5000);
     }
-  } finally {
-    setIsSubmitting(false);
-    setTimeout(() => setSubmitStatus(null), 5000);
-  }
-};
+  };
+  
 
   return (
     <>
       <Navbar />
       <div className="contact-page">
         <div className="contact-container">
+
           {/* Contact Information Section */}
           <div className="contact-info">
             <img 
@@ -116,19 +115,7 @@ const Contact = () => {
           <div className="contact-form">
             <h1>Send Us a Message</h1>
             <p className="subtitle">We'll get back to you within 24 hours</p>
-            
-            {submitStatus === 'success' && (
-              <div className="alert success">
-                Message sent successfully!
-              </div>
-            )}
-            
-            {submitStatus === 'error' && (
-              <div className="alert error">
-                Failed to send message. Please try again.
-              </div>
-            )}
-            
+
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">Full Name *</label>
@@ -199,12 +186,20 @@ const Contact = () => {
                 className="submit-btn"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? (
+                  <span className="loader"></span> // spinner animation
+                ) : (
+                  'Send Message'
+                )}
               </button>
             </form>
           </div>
         </div>
       </div>
+
+      {/* Toast notification container */}
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={true} closeOnClick />
+
       <Footer />
     </>
   );
