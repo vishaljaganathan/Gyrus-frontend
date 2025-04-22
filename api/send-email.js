@@ -7,19 +7,18 @@ export default async function handler(req, res) {
 
   const { name, email, phone, subject, message } = req.body;
 
-  // Configure transporter (use environment variables for security)
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER, // set in Vercel dashboard
-      pass: process.env.EMAIL_PASS, // set in Vercel dashboard (App Password)
+      user: process.env.EMAIL_USER, // your sending email
+      pass: process.env.EMAIL_PASS, // your app password
     },
   });
 
   try {
     await transporter.sendMail({
       from: `"Gyrus Contact" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
+      to: 'support@gyrusneet.com', // <--- set recipient here!
       subject: `Contact Form: ${subject}`,
       html: `
         <h2>Contact Form Submission</h2>
