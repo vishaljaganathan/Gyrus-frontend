@@ -25,14 +25,27 @@ const Contact = () => {
     }));
   };
 
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-
+  
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitStatus('error');
+      setIsSubmitting(false);
+      return;
+    }
+  
     try {
-      const response = await axios.post('/api/send-email', formData);
-
+      const response = await axios.post('/api/send-email', formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
       if (response.data.success) {
         setSubmitStatus('success');
         setFormData({
@@ -48,6 +61,10 @@ const Contact = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       setSubmitStatus('error');
+      // You can show more specific error messages
+      if (error.response) {
+        console.log('Server responded with:', error.response.data);
+      }
     } finally {
       setIsSubmitting(false);
       setTimeout(() => setSubmitStatus(null), 5000);
