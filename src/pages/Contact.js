@@ -26,50 +26,50 @@ const Contact = () => {
   };
 
 
-  
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-  
-    // Basic validation
-    if (!formData.name || !formData.email || !formData.message) {
-      setSubmitStatus('error');
-      setIsSubmitting(false);
-      return;
-    }
-  
-    try {
-      const response = await axios.post('/api/send-email', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+  e.preventDefault();
+  setIsSubmitting(true);
+  setSubmitStatus(null);
+
+  // Basic validation
+  if (!formData.name || !formData.email || !formData.message) {
+    setSubmitStatus('error');
+    setIsSubmitting(false);
+    return;
+  }
+
+  try {
+    const response = await axios.post('/api/send-email', formData, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.data.success) {
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: 'All Subjects',
+        message: ''
       });
-  
-      if (response.data.success) {
-        setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: 'All Subjects',
-          message: ''
-        });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } else {
       setSubmitStatus('error');
-      // You can show more specific error messages
-      if (error.response) {
-        console.log('Server responded with:', error.response.data);
-      }
-    } finally {
-      setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
     }
-  };
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    setSubmitStatus('error');
+    // You can show more specific error messages
+    if (error.response) {
+      console.log('Server responded with:', error.response.data);
+    }
+  } finally {
+    setIsSubmitting(false);
+    setTimeout(() => setSubmitStatus(null), 5000);
+  }
+};
 
   return (
     <>

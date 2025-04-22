@@ -21,7 +21,6 @@ export default async function handler(req, res) {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
-    
     logger: true, // enable logging
     debug: true, // include SMTP traffic in the logs
     tls: {
@@ -58,3 +57,8 @@ export default async function handler(req, res) {
     });
   }
 }
+
+console.log('Attempting to send email with:', {
+    user: process.env.EMAIL_USER,
+    recipient: process.env.EMAIL_USER // or your recipient
+  });
