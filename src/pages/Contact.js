@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import axios from 'axios';
+import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './assets/css/contact.css';
@@ -14,6 +14,7 @@ const Contact = () => {
     subject: 'All Subjects',
     message: ''
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
@@ -27,47 +28,46 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
-  
-    // Basic validation
+
     if (!formData.name || !formData.email || !formData.message) {
-      setSubmitStatus('error');
+      toast.error('Please fill out all required fields.');
       setIsSubmitting(false);
       return;
     }
-  
+
     try {
-      const response = await axios.post('/api/send-email', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+      };
+
+      const response = await emailjs.send(
+        'YOUR_SERVICE_ID',      // ← Replace this
+        'YOUR_TEMPLATE_ID',     // ← Replace this
+        templateParams,
+        'YOUR_PUBLIC_KEY'       // ← Replace this
+      );
+
+      console.log('SUCCESS!', response.status, response.text);
+      toast.success('Message sent successfully!');
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: 'All Subjects',
+        message: ''
       });
-  
-      if (response.data.success) {
-        setSubmitStatus('success');
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          subject: 'All Subjects',
-          message: ''
-        });
-      } else {
-        setSubmitStatus('error');
-      }
     } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-      // Log the response from the backend
-      if (error.response) {
-        console.log('Server responded with:', error.response.data);
-      }
+      console.error('FAILED...', error);
+      toast.error('Failed to send message. Please try again later.');
     } finally {
       setIsSubmitting(false);
-      setTimeout(() => setSubmitStatus(null), 5000);
     }
   };
-  
 
   return (
     <>
@@ -187,7 +187,7 @@ const Contact = () => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <span className="loader"></span> // spinner animation
+                  <span className="loader"></span>
                 ) : (
                   'Send Message'
                 )}

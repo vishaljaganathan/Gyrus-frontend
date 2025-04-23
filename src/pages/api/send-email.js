@@ -5,16 +5,16 @@ export default async function handler(req, res) {
     const { name, email, phone, subject, message } = req.body;
 
     const transporter = nodemailer.createTransport({
-      service: 'gmail', // Or use another email service
+      service: 'gmail', // Or another email service
       auth: {
-        user: process.env.EMAIL_USER, // Replace with your environment variable
-        pass: process.env.EMAIL_PASS, // Replace with your environment variable
+        user: process.env.EMAIL_USER, // Use environment variables
+        pass: process.env.EMAIL_PASS, // Use environment variables
       },
     });
 
     const mailOptions = {
       from: email,
-      to: 'support@gyrusneet.com', // Replace with your desired email address
+      to: 'support@gyrusneet.com',
       subject: `Message from ${name} - ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`,
     };
