@@ -45,10 +45,10 @@ const Contact = () => {
       };
 
       const response = await emailjs.send(
-        'YOUR_SERVICE_ID',      // ← Replace this
-        'YOUR_TEMPLATE_ID',     // ← Replace this
+        'service_bho3de2',      // ← Replace this
+        'template_zlholya',     // ← Replace this
         templateParams,
-        'YOUR_PUBLIC_KEY'       // ← Replace this
+        'XQ7bcgY-TZ6N_E8iD'       // ← Replace this
       );
 
       console.log('SUCCESS!', response.status, response.text);
